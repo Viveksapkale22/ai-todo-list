@@ -1,0 +1,43 @@
+# Node dependency folders
+node_modules/
+jspm_packages/
+web_modules/
+
+# Secrets / Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.env
+
+# Local build / output directories
+dist/
+dist-ssr/
+build/
+out/
+.vercel
+.next/
+.nuxt/
+.cache/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.log
+
+# OS metadata files
+.DS_Store
+Thumbs.db
+
+# IDE and editor configurations
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

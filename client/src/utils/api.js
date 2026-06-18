@@ -1,7 +1,10 @@
 import store from './store.js';
 import { showToast } from '../components/Toast.js';
 
-const API_BASE = '/api';
+const configuredApiBase = import.meta.env.VITE_API_BASE_URL;
+const API_BASE = configuredApiBase
+  ? `${configuredApiBase.replace(/\/$/, '').replace(/\/api$/, '')}/api`
+  : '/api';
 
 async function request(url, options = {}) {
   const token = localStorage.getItem('token');

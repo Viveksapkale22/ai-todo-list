@@ -5,7 +5,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://ai-todo-list-client-kg07feyc7-vivek-s-projects-ed4a97bd.vercel.app/',
         changeOrigin: true,
         secure: false
       }

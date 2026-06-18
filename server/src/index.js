@@ -78,8 +78,7 @@ app.use((err, req, res, next) => {
 // Database Connection with Auto-Retry
 const mongoUri = process.env.MONGODB_URI;
 if (!mongoUri) {
-  console.error('CRITICAL: MONGODB_URI is not defined in the environment variables.');
-  process.exit(1);
+  console.warn('WARNING: MONGODB_URI is not defined. The server will start without a database connection.');
 }
 
 let schedulerStarted = false;
@@ -102,8 +101,10 @@ const connectWithRetry = () => {
     });
 };
 
-// Start the connection loop
-connectWithRetry();
+// Start the connection loop only when a database URI is configured.
+if (mongoUri) {
+  connectWithRetry();
+}
 
 // Start server immediately so it listens on port 5000 (prevents proxy ECONNREFUSED)
 if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
